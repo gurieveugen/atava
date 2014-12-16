@@ -8,10 +8,10 @@
 	<ul class="countries">
 		<li class="cz"><a href="#cz"><img src="<?php echo TDU; ?>/images/pin_cz.png" alt="cz"></a></li>
 		<li class="ua"><a href="#ua"><img src="<?php echo TDU; ?>/images/pin_ua.png" alt="ua"></a></li>
-		<li class="pl"><a href="#pl"><img src="<?php echo TDU; ?>/images/pin_pl.png" alt="pl"></a></li>
+		<!-- <li class="pl"><a href="#pl"><img src="<?php echo TDU; ?>/images/pin_pl.png" alt="pl"></a></li>
 		<li class="ru"><a href="#ru"><img src="<?php echo TDU; ?>/images/pin_ru.png" alt="ru"></a></li>
 		<li class="uk"><a href="#uk"><img src="<?php echo TDU; ?>/images/pin_uk.png" alt="uk"></a></li>
-		<li class="de"><a href="#de"><img src="<?php echo TDU; ?>/images/pin_de.png" alt="de"></a></li>
+		<li class="de"><a href="#de"><img src="<?php echo TDU; ?>/images/pin_de.png" alt="de"></a></li> -->
 	</ul>
 	<ul class="countries-info">
 		<li class="cz hide">

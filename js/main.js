@@ -5,7 +5,7 @@ jQuery(document).ready(function(){
 	var transport = new Transport({
 		quad : { 
 			selector: '.quad',
-			delay: '8000',
+			delay: '16000',
 			position: {
 				start: 1400,
 				end: -200
@@ -13,7 +13,7 @@ jQuery(document).ready(function(){
 		},
 		minivan : { 
 			selector: '.minivan',
-			delay: '10000',
+			delay: '20000',
 			position: {
 				start: -300,
 				end: 1500
@@ -21,7 +21,7 @@ jQuery(document).ready(function(){
 		},
 		bus : { 
 			selector: '.bus',
-			delay: '12000',
+			delay: '24000',
 			position: {
 				start: 1500,
 				end: -300
@@ -29,7 +29,7 @@ jQuery(document).ready(function(){
 		},
 		quad_flip : { 
 			selector: '.quad_flip',
-			delay: '14000',
+			delay: '28000',
 			position: {
 				start: -200,
 				end: 1400
@@ -37,7 +37,7 @@ jQuery(document).ready(function(){
 		},
 		car : { 
 			selector: '.car',
-			delay: '16000',
+			delay: '32000',
 			position: {
 				start: 1400,
 				end: -200
