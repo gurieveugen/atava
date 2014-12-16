@@ -44,7 +44,7 @@ abstract class Base{
      */
     public function adminScriptsAndScripts()
     {
-    	if(function_exists('wp_enqueue_media')) wp_enqueue_media();    	
+    	//if(function_exists('wp_enqueue_media')) wp_enqueue_media();    	
     	wp_enqueue_script('wp-color-picker');
     	wp_enqueue_script('media-uploader', GCLIB_URL.'js/media.js', array('jquery'));
     }

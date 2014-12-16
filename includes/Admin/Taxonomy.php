@@ -50,7 +50,7 @@ class Taxonomy extends BaseWithControls{
         // HOOKS
         // =========================================================
         add_action('init', array(&$this, 'registerTaxonomy'));
-        if($this->controls->getCount() > 0)
+        if($this->controls != null && $this->controls->getCount() > 0)
         {           
             add_action($this->name.'_edit_form_fields', array(&$this, 'editFormFields')); 
             add_action($this->name.'_add_form_fields', array(&$this, 'addFormFields'));

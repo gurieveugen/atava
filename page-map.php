@@ -1,4 +1,9 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Template name: Map
+ */
+?>
+<?php get_header('map'); ?>
 <div class="front-page">
 	<ul class="countries">
 		<li class="cz"><a href="#cz"><img src="<?php echo TDU; ?>/images/pin_cz.png" alt="cz"></a></li>
@@ -69,4 +74,4 @@
 		</ul>
 	</div>
 </div>
-<?php get_footer(); ?>
+<?php get_footer('map'); ?>

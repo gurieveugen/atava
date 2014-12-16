@@ -1,14 +1,8 @@
-<?php
-/**
- * @package WordPress
- * @subpackage Base_Theme
- */
-?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<title><?php wp_title( '|', true, 'right' ); ?></title>
+	<title><?php wp_title( ' ', true, 'right' ); ?></title>
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
@@ -16,14 +10,19 @@
 		wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+	<?php
+	$chat = new Chat();
+	echo $chat->getHTML();
+	?>
+	<a href="#" class="chat"></a>
 	<div id="wrapper">
 		<header id="header">
 			<div class="logo"><img src="<?php echo TDU; ?>/images/logo.png" alt="Logo image"></div>
 			<div class="info">
 				<div class="company">
 					<img src="<?php echo TDU; ?>/images/phone.png" alt="Phone">
-					<span>Atava Travel</span>
-					<span class="green">+420 777 000 000</span>
+					<span><?php bloginfo('name'); ?></span>
+					<span class="green"><?php echo (string) get_option( 'gc_gs_phone' ); ?></span>
 				</div>
 				<div class="languages">
 					<ul class="languages">
@@ -34,8 +33,18 @@
 						<li><a href="#"><i class="uk"></i></a></li>
 						<li><a href="#"><i class="de"></i></a></li>
 					</ul>
-					<button>Rychlá poptávka</button>
+					<a href="<?php echo get_bloginfo('url'); ?>/osobni-preprava/" class="button">Rychlá poptávka</a>
 				</div>
 			</div>
+			<nav>
+				<?php
+					wp_nav_menu( 
+						array( 
+							'theme_location' => 'primary', 
+							'container'      => false 
+						) 
+					);
+				?>
+			</nav>
 		</header>
 		<div id="main">
