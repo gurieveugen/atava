@@ -37,7 +37,7 @@ function scriptsAndStyles()
 	wp_enqueue_script( 'selecter', TDU.'/js/jquery.fs.selecter.min.js', array( 'jquery' ) );
 	wp_enqueue_script( 'jquery-ui-datepicker');
 	wp_enqueue_script( 'google_map', 'https://maps.googleapis.com/maps/api/js?v=3.exp' );
-	//wp_enqueue_script( 'boxer', TDU.'/js/jquery.fs.boxer.min.js', array( 'jquery' ) );
+	wp_enqueue_script( 'coverflow', TDU.'/coverflow/js/coverflow.min.js', array( 'jquery' ) );
 	wp_enqueue_script( 'jcarousel', TDU.'/js/jquery.jcarousel.min.js', array( 'jquery' ) );
 
 	wp_enqueue_script( 'jquery.mousewheel', TDU.'/fancybox/lib/jquery.mousewheel-3.0.6.pack.js', array( 'jquery' ) );
@@ -52,7 +52,7 @@ function scriptsAndStyles()
 	wp_enqueue_style( 'boutique', TDU.'/css/boutique.css' );
 	wp_enqueue_style( 'selecter', TDU.'/css/jquery.fs.selecter.min.css' );
 	wp_enqueue_style( 'jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css' );
-	//wp_enqueue_style( 'boxer', TDU.'/css/jquery.fs.boxer.css' );
+	wp_enqueue_style( 'coverflow', TDU.'/coverflow/css/style.css' );
 	//
 	wp_enqueue_style( 'jquery.fancybox', TDU.'/fancybox/source/jquery.fancybox.css?v=2.1.5' );
 	wp_enqueue_style( 'jquery.fancybox-buttons', TDU.'/fancybox/source/helpers/jquery.fancybox-buttons.css' );
@@ -105,7 +105,7 @@ $ccollection_global = new Controls\ControlsCollection(
 		new Controls\Text(
 			'Longitude', 
 			array(
-				'default-value' => '+420 777 000 000',
+				'default-value' => '22.720956',
 				'description'   => 'Longitude from google maps'
 			), 
 			array('placeholder' => 'Enter your Longitude')
@@ -113,10 +113,50 @@ $ccollection_global = new Controls\ControlsCollection(
 		new Controls\Text(
 			'Latitude', 
 			array(
-				'default-value' => '+420 777 000 000',
+				'default-value' => '48.441927',
 				'description'   => 'Latitude from google maps'
 			), 
 			array('placeholder' => 'Enter your Latitude')
+		),
+	)
+);
+
+$ccollection_socials = new Controls\ControlsCollection(
+	array(		
+		new Controls\Text(
+			'Facebook', 
+			array(
+				'default-value' => 'http://www.facebook.com'
+			), 
+			array('placeholder' => 'URL')
+		),
+		new Controls\Text(
+			'Twitter', 
+			array(
+				'default-value' => 'http://www.twitter.com'
+			), 
+			array('placeholder' => 'URL')
+		),
+		new Controls\Text(
+			'Google plus', 
+			array(
+				'default-value' => 'https://plus.google.com/'
+			), 
+			array('placeholder' => 'URL')
+		),
+		new Controls\Text(
+			'Odnoklasniki', 
+			array(
+				'default-value' => 'http://www.odnoklassniki.ru/'
+			), 
+			array('placeholder' => 'URL')
+		),
+		new Controls\Text(
+			'You tube', 
+			array(
+				'default-value' => 'http://www.youtube.com'
+			), 
+			array('placeholder' => 'URL')
 		),
 	)
 );
@@ -166,7 +206,7 @@ $ccollection_page = new Controls\ControlsCollection(
 // ==============================================================
 // Sections
 // ==============================================================
-$section_global    = new Admin\Section(
+$section_global = new Admin\Section(
 	'Global settings', 
 	array(
 		'prefix'   => 'gc_gs_',
@@ -175,13 +215,23 @@ $section_global    = new Admin\Section(
 	$ccollection_global
 );
 
+$section_socials = new Admin\Section(
+	'Social networks urls', 
+	array(
+		'prefix'   => 'gc_ss_',
+		'tab_icon' => 'fa-link'
+	), 
+	$ccollection_socials
+);
+
 // ==============================================================
 // Pages
 // ==============================================================
 $page_settings = new Admin\Page(
 	'Theme settings', array(), 
 	array(
-		$section_global
+		$section_global,
+		$section_socials
 	)
 );
 // ==============================================================

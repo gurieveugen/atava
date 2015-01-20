@@ -6,4 +6,5 @@ the_post();
 	<span class="page-title">Atava Travel ~ O nás</span>
 	<?php the_content(); ?>
 </div>
+	
 <?php get_footer(); ?>

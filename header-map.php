@@ -16,14 +16,9 @@
 		wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-	<?php
-	$chat = new Chat();
-	echo $chat->getHTML();
-	?>
-	<a href="#" class="chat"></a>
 	<div id="wrapper">
 		<header id="header">
-			<div class="logo"><img src="<?php echo TDU; ?>/images/logo.png" alt="Logo image"></div>
+			<div class="logo"><img src="<?php echo TDU; ?>/images/atava_logggo.png" alt="Logo image" width="200"></div>
 			<div class="info">
 				<div class="company">
 					<img src="<?php echo TDU; ?>/images/phone.png" alt="Phone">

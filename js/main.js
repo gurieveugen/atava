@@ -93,32 +93,32 @@ jQuery(document).ready(function(){
 	// ==============================================================
 	// boutique
 	// ==============================================================
-	jQuery('.boutique').boutique({
-		front_img_width:   250,
-		frames:            7,
-		starter:           1,
-		speed:             500,
-		hovergrowth:       0,
-		front_topmargin:   0,
-		behind_size:       0.9,
-		behind_topmargin:  20,
-		behind_distance:   140,
-		behind_opacity:    1,
-		back_size:         0.7,
-		back_topmargin:    60,
-		back_opacity:      1,
-		autoplay_interval: 4000,
-		freescroll:        false,
-		text_front_only:   true,
-		text_opacity:      0,
-		keyboard:          false
-	});
+	// jQuery('.boutique').boutique({
+	// 	front_img_width:   250,
+	// 	frames:            7,
+	// 	starter:           1,
+	// 	speed:             500,
+	// 	hovergrowth:       0,
+	// 	front_topmargin:   0,
+	// 	behind_size:       0.9,
+	// 	behind_topmargin:  20,
+	// 	behind_distance:   140,
+	// 	behind_opacity:    1,
+	// 	back_size:         0.7,
+	// 	back_topmargin:    60,
+	// 	back_opacity:      1,
+	// 	autoplay_interval: 4000,
+	// 	freescroll:        false,
+	// 	text_front_only:   true,
+	// 	text_opacity:      0,
+	// 	keyboard:          false
+	// });
 
-	jQuery('.boutique-frame img').dblclick(function(e) {
-		var url = jQuery(this).data('url');
-		window.open(url);
-		e.preventDefault();
-	});
+	// jQuery('.boutique-frame img').dblclick(function(e) {
+	// 	var url = jQuery(this).data('url');
+	// 	window.open(url);
+	// 	e.preventDefault();
+	// });
 	// ==============================================================
 	// Selecter
 	// ==============================================================
@@ -182,6 +182,39 @@ jQuery(document).ready(function(){
         	jQuery('.images-block aside').resize();
     	}
 	});
+	// ==============================================================
+	// FIX lines height
+	// Не пытайтесь понять зачем нужен такой подход.
+	// Клиент хочет ужастный сайт. 
+	// Мы его об этом предупредили но слушает он дизайнера
+	// по этому приходится работать с тем что имеем. 
+	// Не суди строго о великий гуру программист. 
+	// ==============================================================
+	var toolpanel_height = 0;
+	if(jQuery('.coverflow-block').length)
+	{
+		toolpanel_height = jQuery('.coverflow-block').offset().top + jQuery('.coverflow-block').height()-305;
+	}
+	else if(jQuery('.castles-block').length)
+	{
+		toolpanel_height = jQuery('.castles-block').offset().top + jQuery('.castles-block').height()-230;
+	}
+	else
+	{
+		jQuery('.toolpanel.left').addClass('small');
+		jQuery('.toolpanel.right').addClass('small');
+		toolpanel_height = jQuery('.page-content').offset().top + jQuery('.page-content').height()-300;
+	}
+
+	if(toolpanel_height != 0)
+	{
+		jQuery('.toolpanel.left').css({height : toolpanel_height + 'px'});
+		jQuery('.toolpanel.right').css({height : toolpanel_height + 'px'});	
+	}
+	// ==============================================================
+	// Coverflow
+	// ==============================================================
+	$coverflow = jQuery("#coverflow").coverflow({"path": defaults.template_url + "/coverflow/"});
 });
 
 function initializeGMap() 
@@ -189,7 +222,8 @@ function initializeGMap()
 	var myLatlng = new google.maps.LatLng(jQuery('#map-canvas').data('lat'), jQuery('#map-canvas').data('lng'));
 	var mapOptions = {
 		zoom: 14,
-		center: myLatlng
+		center: myLatlng,
+		scrollwheel: false
 	}
 	var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 

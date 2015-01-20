@@ -13,9 +13,7 @@ echo Castles::getCastles($castle);
 magnatur sed modi quat paruptatet accae consero erum, id uta
 	</pre>
 </div>
-<a href="#" class="chat-btn"></a>
+
 <?php wp_footer(); ?>
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-534d768f44b3907d" async="async"></script>
 </body>
 </html>

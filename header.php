@@ -10,14 +10,25 @@
 		wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-	<?php
-	$chat = new Chat();
-	echo $chat->getHTML();
-	?>
-	<a href="#" class="chat"></a>
 	<div id="wrapper">
+		<?php
+		$chat = new Chat();
+		echo $chat->getHTML();
+		?>
+		<div class="toolpanel right">
+			<a href="#" class="chat"></a>	
+		</div>
+		<div class="toolpanel left">
+			<ul class="socials">
+				<li><a href="<?php echo (string) get_option('gc_ss_facebook'); ?>"><img src="<?php echo TDU; ?>/images/facebook.png" alt="facebook"></a></li>
+				<li><a href="<?php echo (string) get_option('gc_ss_odnoklasniki'); ?>"><img src="<?php echo TDU; ?>/images/odnoklasniki.png" alt="onoklasniki"></a></li>
+				<li><a href="<?php echo (string) get_option('gc_ss_twitter'); ?>"><img src="<?php echo TDU; ?>/images/twitter.png" alt="twitter"></a></li>
+				<li><a href="<?php echo (string) get_option('gc_ss_you_tube'); ?>"><img src="<?php echo TDU; ?>/images/youtube.png" alt="youtube"></a></li>
+				<li><a href="<?php echo (string) get_option('gc_ss_google_plus'); ?>"><img src="<?php echo TDU; ?>/images/google_plus.png" alt="google_plus"></a></li>
+			</ul>
+		</div>
 		<header id="header">
-			<div class="logo"><img src="<?php echo TDU; ?>/images/logo.png" alt="Logo image"></div>
+			<div class="logo"><img src="<?php echo TDU; ?>/images/atava_logggo.png" alt="Logo image" width="200"></div>
 			<div class="info">
 				<div class="company">
 					<img src="<?php echo TDU; ?>/images/phone.png" alt="Phone">

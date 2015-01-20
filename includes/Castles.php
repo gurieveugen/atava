@@ -55,7 +55,7 @@ class Castles{
 			for($i = 0; $i < count($castles); $i+=4)
 			{
 				array_push( $result, '<ul>' );
-				for($x = 0; $x < 4; $x++)
+				for($x = 0; $x < 5; $x++)
 				{
 					if(!isset($castles[$i+$x])) continue;
 					$castle = $castles[$i+$x];
